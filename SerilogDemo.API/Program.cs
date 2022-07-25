@@ -13,8 +13,7 @@ public class Program
     {
         var configuration = new ConfigurationBuilder()
             .SetBasePath(System.IO.Directory.GetCurrentDirectory())
-            //.AddJsonFile("appsettings.json")
-            .AddJsonFile($"appsettings.{env}.json", optional: true)
+            .AddJsonFile("appsettings.json")
             .AddJsonFile($"appsettings.{env}.json", optional: true)
             .Build();
 
