@@ -34,7 +34,6 @@ public class Program
         {
             Log.CloseAndFlush();
         }
-
     }
 
     public static IHostBuilder CreateHostBuilder(string[] args)
