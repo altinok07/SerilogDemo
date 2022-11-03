@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
+using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,9 +15,10 @@ namespace SerilogDemo.API.Controllers
         "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
     };
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        //private readonly ILogger<WeatherForecastController> _logger;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        private readonly ILogger _logger;
+        public WeatherForecastController(ILogger logger)
         {
             _logger = logger;
         }
@@ -26,7 +27,7 @@ namespace SerilogDemo.API.Controllers
         public IEnumerable<WeatherForecast> Get()
         {
 
-            _logger.LogInformation("You requested the Get method");
+            _logger.Information("You requested the Get method");
 
             try
             {
@@ -34,7 +35,7 @@ namespace SerilogDemo.API.Controllers
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "I catch this exception in the Get method call");
+                _logger.Error(ex, "I catch this exception in the Get method call");
             }
 
 
@@ -53,7 +54,7 @@ namespace SerilogDemo.API.Controllers
         [HttpGet("Test")]
         public int Test()
         {
-            _logger.LogInformation("You requested the Get method");
+            _logger.Information("You requested the Get method");
 
 
             try
@@ -66,13 +67,13 @@ namespace SerilogDemo.API.Controllers
                     }
                     else
                     {
-                        _logger.LogInformation("The Value of i is: {i}", i);
+                        _logger.Information("The Value of i is: {i}", i);
                     }
                 }
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "I catch this exception in the Get method call");
+                _logger.Error(ex, "I catch this exception in the Get method call");
             }
 
             return 0;

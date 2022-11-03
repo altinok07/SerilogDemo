@@ -24,6 +24,8 @@ public class Startup
         {
             c.SwaggerDoc("v1", new OpenApiInfo { Title = "SerilogDemo", Version = "v1" });
         });
+
+        services.AddSingleton(Log.Logger);
     }
 
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
