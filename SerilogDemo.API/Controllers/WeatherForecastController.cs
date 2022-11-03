@@ -59,9 +59,9 @@ namespace SerilogDemo.API.Controllers
 
             try
             {
-                for (int i = 0; i < 100; i++)
+                for (int i = 0; i < 10; i++)
                 {
-                    if (i == 56)
+                    if (i == 5)
                     {
                         throw new Exception("This is my demo exception");
                     }
